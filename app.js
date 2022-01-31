@@ -5,9 +5,11 @@ require('dotenv/config');
 
 // Import routes
 const itemsRoute = require('./routes/items');
+const questsRoute = require('./routes/quests');
 
 // MIDDLEWARE
 app.use('/items', itemsRoute);
+app.use('/quests', questsRoute);
 
 // ROUTES
 app.get('/', (req, res) => {
