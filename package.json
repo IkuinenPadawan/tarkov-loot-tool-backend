@@ -1,0 +1,23 @@
+{
+  "name": "tarkov-loot-tool-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IkuinenPadawan/tarkov-loot-tool-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IkuinenPadawan/tarkov-loot-tool-backend/issues"
+  },
+  "homepage": "https://github.com/IkuinenPadawan/tarkov-loot-tool-backend#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
+}
