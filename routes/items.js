@@ -11,4 +11,14 @@ router.get('/', async (req, res) => {
   }
 });
 
+// SPECIFIC ITEM
+router.get('/:itemId', async (req, res) => {
+  try {
+    const item = await Item.find({ id: req.params.itemId }, { _id: 0 });
+    res.json(item);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 module.exports = router;
