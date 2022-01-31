@@ -1,8 +1,13 @@
 const express = require('express');
-
 const app = express();
 const mongoose = require('mongoose');
 require('dotenv/config');
+
+// Import routes
+const itemsRoute = require('./routes/items');
+
+// MIDDLEWARE
+app.use('/items', itemsRoute);
 
 // ROUTES
 app.get('/', (req, res) => {
