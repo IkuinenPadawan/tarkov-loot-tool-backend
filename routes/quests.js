@@ -11,4 +11,14 @@ router.get('/', async (req, res) => {
   }
 });
 
+// SPECIFIC QUEST
+router.get('/:questId', async (req, res) => {
+  try {
+    const quest = await Quest.find({ id: req.params.questId }, { _id: 0 });
+    res.json(quest);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 module.exports = router;
