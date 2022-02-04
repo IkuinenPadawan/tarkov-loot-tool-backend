@@ -18,7 +18,7 @@ app.use('/modules', modulesRoute);
 // ROUTES
 app.get('/', (req, res) => {
   res.send(
-    `Resources: <a href="${baseURL}items">/items</a> <br> Resources: <a href="${baseURL}quests">/quests</a> <br> Resources: <a href="${baseURL}modules">/modules</a> <br>`
+    `Resources: <br> <a href="${baseURL}items">/items</a> <br>  <a href="${baseURL}quests">/quests</a> <br> <a href="${baseURL}modules">/modules</a> <br>`
   );
 });
 
