@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 require('dotenv/config');
 
+const baseURL = process.env.PORT ? 'TBD' : 'http://localhost:3000/';
+
 // Import routes
 const itemsRoute = require('./routes/items');
 const questsRoute = require('./routes/quests');
@@ -15,7 +17,9 @@ app.use('/modules', modulesRoute);
 
 // ROUTES
 app.get('/', (req, res) => {
-  res.send('We are on home');
+  res.send(
+    `Resources: <a href="${baseURL}items">/items</a> <br> Resources: <a href="${baseURL}quests">/quests</a> <br> Resources: <a href="${baseURL}modules">/modules</a> <br>`
+  );
 });
 
 // Connect to DB
