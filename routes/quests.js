@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Quest = require('../models/Quest');
 
+// GET ALL QUESTS
 router.get('/', async (req, res) => {
   try {
     const quests = await Quest.find();
@@ -11,7 +12,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// SPECIFIC QUEST
+// GET SPECIFIC QUEST
 router.get('/:questId', async (req, res) => {
   try {
     const quest = await Quest.find({ id: req.params.questId }, { _id: 0 });

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Module = require('../models/Module');
 
+// GET ALL MODULES
 router.get('/', async (req, res) => {
   try {
     const modules = await Module.find();
@@ -11,7 +12,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// SPECIFIC MODULE
+// GET SPECIFIC MODULE
 router.get('/:moduleId', async (req, res) => {
   try {
     const module = await Module.find({ id: req.params.moduleId }, { _id: 0 });

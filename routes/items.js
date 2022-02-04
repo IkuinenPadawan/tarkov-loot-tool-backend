@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Item = require('../models/Item');
 
+// GET ALL ITEMS
 router.get('/', async (req, res) => {
   try {
     const items = await Item.find();
@@ -11,7 +12,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// SPECIFIC ITEM
+// GET SPECIFIC ITEM
 router.get('/:itemId', async (req, res) => {
   try {
     const item = await Item.find({ id: req.params.itemId }, { _id: 0 });
