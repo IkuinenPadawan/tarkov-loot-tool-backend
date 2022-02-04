@@ -5,18 +5,34 @@ const Quest = require('../models/Quest');
 // GET ALL QUESTS
 router.get('/', async (req, res) => {
   try {
-    const quests = await Quest.find();
-    res.json(quests);
+    const result = await Quest.find();
+    if (result.length > 0) {
+      res.status(200).json(result);
+    } else {
+      const payload = {
+        msg: `No entries found`,
+        data: result,
+      };
+      res.status(404).json(payload);
+    }
   } catch (err) {
     res.json({ message: err });
   }
 });
 
 // GET SPECIFIC QUEST
-router.get('/:questId', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
-    const quest = await Quest.find({ id: req.params.questId }, { _id: 0 });
-    res.json(quest);
+    const result = await Quest.find({ id: req.params.id }, { _id: 0 });
+    if (result.length > 0) {
+      res.status(200).json(result);
+    } else {
+      const payload = {
+        msg: `No entry found with id ${req.params.id}`,
+        data: result,
+      };
+      res.status(404).json(payload);
+    }
   } catch (err) {
     res.json({ message: err });
   }
