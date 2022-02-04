@@ -33,6 +33,6 @@ app.listen(port, () => console.log(`Listening on ${port}...`));
 // Graceful exit
 process.on('SIGINT', function () {
   console.log('Closing...');
-  dbConnection.close();
+  mongoose.disconnect();
   process.exit();
 });
