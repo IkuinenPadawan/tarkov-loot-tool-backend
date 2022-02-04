@@ -10,17 +10,17 @@ const itemsRoute = require('./routes/items');
 const questsRoute = require('./routes/quests');
 const modulesRoute = require('./routes/modules');
 
-// MIDDLEWARE
-app.use('/items', itemsRoute);
-app.use('/quests', questsRoute);
-app.use('/modules', modulesRoute);
-
-// ROUTES
+// ROOT ROUTE
 app.get('/', (req, res) => {
   res.send(
     `Resources: <br> <a href="${baseURL}items">/items</a> <br>  <a href="${baseURL}quests">/quests</a> <br> <a href="${baseURL}modules">/modules</a> <br>`
   );
 });
+
+// MIDDLEWARE
+app.use('/items', itemsRoute);
+app.use('/quests', questsRoute);
+app.use('/modules', modulesRoute);
 
 // Connect to DB
 mongoose.connect(process.env.DB_CONNECTION, () =>
